@@ -5,21 +5,18 @@
   <title>Donor Outreach & Requests – Fall 2025</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    /* =========================
-       Power Apps Portals–style theme
-       (tweak the variables to match your portal exactly)
-       ========================= */
+    /* ===== Violet theme ===== */
     :root{
-      --brand: #2b6cb0;        /* header/nav blue */
-      --brand-2: #234e86;      /* darker hover blue */
-      --accent: #ffd24d;       /* call-to-action */
-      --bg: #f3f6fb;           /* page background */
+      --brand: #6b3fa0;        /* main violet */
+      --brand-2: #4d2a7a;      /* darker violet (header gradient & hovers) */
+      --accent: #ffd24d;       /* call-to-action button */
+      --bg: #f4f2f8;           /* page background (soft violet gray) */
       --card: #ffffff;         /* card background */
-      --text: #1f2937;         /* body text */
-      --muted: #6b7280;        /* muted text */
-      --border: #e5e7eb;       /* light borders */
-      --radius: 12px;          /* rounded corners */
-      --shadow: 0 4px 14px rgba(17, 24, 39, .06);
+      --text: #1f1930;         /* body text (deep violet/gray) */
+      --muted: #6b6280;        /* muted text */
+      --border: #e6e1ef;       /* light borders */
+      --radius: 12px;
+      --shadow: 0 4px 14px rgba(45, 27, 77, .08);
     }
 
     * { box-sizing: border-box }
@@ -50,7 +47,7 @@
     }
     .brand-title { margin:0; font-weight:700; letter-spacing:.2px; }
 
-    /* Nav “pills” */
+    /* Nav pills */
     nav { margin-top: 10px; display:flex; flex-wrap:wrap; gap:10px; }
     nav a {
       color:#fff; text-decoration:none; font-weight:600;
@@ -60,7 +57,7 @@
     }
     nav a:hover { background: rgba(255,255,255,.16); border-color: rgba(255,255,255,.35); }
 
-    /* Main layout */
+    /* Main */
     main { padding: 28px 0 40px; }
     .card {
       background: var(--card);
@@ -70,14 +67,13 @@
       margin: 18px 0;
       box-shadow: var(--shadow);
     }
-
     h2 { margin: 0 0 10px; color: var(--brand-2); }
     p.lead { color: var(--muted); margin-top:6px }
 
     ul { padding-left: 20px; }
     li { margin: 6px 0; }
 
-    /* Links & CTAs */
+    /* Links & buttons */
     a.link { color: var(--brand); font-weight:700; text-decoration:none }
     a.link:hover { text-decoration:underline }
     .btn {
@@ -87,15 +83,13 @@
       box-shadow: 0 2px 8px rgba(0,0,0,.06);
     }
 
-    /* Details (expanders) styled like Portals */
+    /* Details/expanders */
     details { border: 1px solid var(--border); border-radius: 10px; margin: 10px 0; background:#fff; }
-    summary {
-      cursor:pointer; list-style:none; padding: 12px 14px; font-weight:700; color: var(--brand);
-    }
-    details[open] summary { border-bottom: 1px solid var(--border); background: #f8fafc; }
-    details > div { padding: 14px; color: #374151; }
+    summary { cursor:pointer; list-style:none; padding: 12px 14px; font-weight:700; color: var(--brand); }
+    details[open] summary { border-bottom: 1px solid var(--border); background: #f8f7fb; }
+    details > div { padding: 14px; color: #32284a; }
 
-    /* QR images grid */
+    /* QR grid */
     .qr-grid { display:flex; flex-wrap:wrap; gap:20px; align-items:flex-start }
     .qr { width:130px; height:auto; border:1px solid var(--border); border-radius: 10px; padding:8px; background:#fff; }
 
@@ -110,7 +104,6 @@
     footer a { color: var(--brand); text-decoration:none; font-weight:600 }
     footer a:hover { text-decoration:underline }
 
-    /* Small screens */
     @media (max-width: 640px){
       .brand-row { flex-direction: row; align-items:center }
       .brand-title { font-size: 1.25rem }
@@ -124,8 +117,8 @@
   <header>
     <div class="wrap">
       <div class="brand-row">
-        <!-- Put your actual file in /assets and match the name/case -->
-        <img class="logo" src="assets/logo.png" alt="Forward Progression Development Inc. logo">
+        <!-- Your uploaded logo -->
+        <img class="logo" src="logo.png" alt="Forward Progression Development Inc. logo">
         <div>
           <h1 class="brand-title">Donor Outreach & Requests – Fall 2025</h1>
           <nav>
@@ -169,14 +162,13 @@
           • <a class="link" href="https://outlook.office365.com/book/ForwardProgressionConnect@forwardprogressiondev.onmicrosoft.com/?ismsaljsauthenabled=true" target="_blank">Booking Portal</a>
         </p>
 
-        <!-- Optional QR images (upload to /assets first) -->
         <div class="qr-grid">
           <div>
-            <img class="qr" src="assets/qr-startup.png" alt="QR - Startup Your Business">
+            <img class="qr" src="STARTUP.png" alt="QR code - Startup Your Business">
             <div style="font-size:.9rem; color:var(--muted); margin-top:6px">Startup Your Business</div>
           </div>
           <div>
-            <img class="qr" src="assets/qr-booking.png" alt="QR - Booking Portal">
+            <img class="qr" src="BOOKINGS.png" alt="QR code - Booking Portal">
             <div style="font-size:.9rem; color:var(--muted); margin-top:6px">Booking Portal</div>
           </div>
         </div>
