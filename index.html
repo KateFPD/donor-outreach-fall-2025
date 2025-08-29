@@ -5,18 +5,19 @@
   <title>Donor Outreach & Requests – Fall 2025</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    /* ===== Violet theme ===== */
+    /* ===== Violet + Gold Theme ===== */
     :root{
-      --brand: #6b3fa0;        /* main violet */
-      --brand-2: #4d2a7a;      /* darker violet (header gradient & hovers) */
-      --accent: #ffd24d;       /* call-to-action button */
-      --bg: #f4f2f8;           /* page background (soft violet gray) */
+      --brand: #7b1f7b;        /* main violet from logo */
+      --brand-2: #5a145a;      /* darker violet for gradients & hover */
+      --accent: #ffd24d;       /* gold accent */
+      --accent-dark: #e6b800;  /* deeper gold hover */
+      --bg: #f9f5fa;           /* soft violet-tinted background */
       --card: #ffffff;         /* card background */
-      --text: #1f1930;         /* body text (deep violet/gray) */
-      --muted: #6b6280;        /* muted text */
-      --border: #e6e1ef;       /* light borders */
+      --text: #2c1e2c;         /* dark violet-gray text */
+      --muted: #7c6f85;        /* muted text */
+      --border: #e4d6e9;       /* light violet-gray border */
       --radius: 12px;
-      --shadow: 0 4px 14px rgba(45, 27, 77, .08);
+      --shadow: 0 4px 14px rgba(123, 31, 123, .12);
     }
 
     * { box-sizing: border-box }
@@ -81,12 +82,14 @@
       padding: 10px 14px; border-radius: 10px; text-decoration:none; margin-top:10px;
       border: 1px solid rgba(17,17,17,.08);
       box-shadow: 0 2px 8px rgba(0,0,0,.06);
+      transition: background 0.2s ease;
     }
+    .btn:hover { background: var(--accent-dark); }
 
     /* Details/expanders */
     details { border: 1px solid var(--border); border-radius: 10px; margin: 10px 0; background:#fff; }
     summary { cursor:pointer; list-style:none; padding: 12px 14px; font-weight:700; color: var(--brand); }
-    details[open] summary { border-bottom: 1px solid var(--border); background: #f8f7fb; }
+    details[open] summary { border-bottom: 1px solid var(--border); background: #f3ecf6; }
     details > div { padding: 14px; color: #32284a; }
 
     /* QR grid */
@@ -117,7 +120,7 @@
   <header>
     <div class="wrap">
       <div class="brand-row">
-        <!-- Your uploaded logo -->
+        <!-- Your uploaded logo (repo root) -->
         <img class="logo" src="logo.png" alt="Forward Progression Development Inc. logo">
         <div>
           <h1 class="brand-title">Donor Outreach & Requests – Fall 2025</h1>
