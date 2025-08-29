@@ -1,189 +1,260 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <title>Donor Outreach & Requests – Fall 2025</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
+    /* =========================
+       Power Apps Portals–style theme
+       (tweak the variables to match your portal exactly)
+       ========================= */
     :root{
-      --brand: #2e6da4;       /* Primary brand color */
-      --brand-dark: #1f4b73;  /* Darker shade */
-      --accent: #ffd24d;      /* Highlight color */
-      --bg: #f9f9f9;          /* Background color */
-      --text: #333;           /* Text color */
+      --brand: #2b6cb0;        /* header/nav blue */
+      --brand-2: #234e86;      /* darker hover blue */
+      --accent: #ffd24d;       /* call-to-action */
+      --bg: #f3f6fb;           /* page background */
+      --card: #ffffff;         /* card background */
+      --text: #1f2937;         /* body text */
+      --muted: #6b7280;        /* muted text */
+      --border: #e5e7eb;       /* light borders */
+      --radius: 12px;          /* rounded corners */
+      --shadow: 0 4px 14px rgba(17, 24, 39, .06);
     }
-    *{box-sizing:border-box}
-    body {
-      font-family: Arial, Helvetica, sans-serif;
+
+    * { box-sizing: border-box }
+    html, body {
       margin: 0;
+      padding: 0;
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
+      font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
     }
-    .container{max-width: 960px; margin: 0 auto; padding: 24px}
-    header{
-      background: white;
-      border-bottom: 1px solid #eee;
+
+    /* Header bar */
+    header {
+      background: linear-gradient(180deg, var(--brand), var(--brand-2));
+      color: #fff;
+      padding: 20px 0;
+      box-shadow: var(--shadow);
     }
-    .brand{
-      display:flex; align-items:center; gap:12px;
-      padding: 16px 0;
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    .brand-row {
+      display:flex; align-items:center; gap:16px;
     }
-    .brand img{height:48px; width:auto}
-    .brand h1{margin:0; color: var(--brand)}
-    nav{
-      margin-top: 6px;
+    .brand-row img.logo {
+      height: 56px; width: auto; border-radius: 8px; background:#fff; padding:6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,.12);
     }
-    nav a{
-      display:inline-block; margin-right:14px; padding:6px 10px;
-      color:#fff; background: var(--brand); text-decoration:none; border-radius:6px; font-weight:600;
+    .brand-title { margin:0; font-weight:700; letter-spacing:.2px; }
+
+    /* Nav “pills” */
+    nav { margin-top: 10px; display:flex; flex-wrap:wrap; gap:10px; }
+    nav a {
+      color:#fff; text-decoration:none; font-weight:600;
+      padding: 8px 12px; border: 1px solid rgba(255,255,255,.25);
+      border-radius: 999px; transition: .2s ease;
+      backdrop-filter: saturate(120%) blur(2px);
     }
-    nav a:hover{background: var(--brand-dark)}
-    .box {
-      background: white;
-      padding: 20px;
-      margin: 20px 0;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    nav a:hover { background: rgba(255,255,255,.16); border-color: rgba(255,255,255,.35); }
+
+    /* Main layout */
+    main { padding: 28px 0 40px; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+      margin: 18px 0;
+      box-shadow: var(--shadow);
     }
-    h2{margin-top:0; color:#444}
-    ul { list-style: square; padding-left: 20px; }
-    a.link{color: var(--brand); text-decoration: none; font-weight: 700}
-    a.link:hover{text-decoration: underline}
-    .qr-wrap{display:flex; gap:24px; align-items:center; flex-wrap:wrap}
-    .qr{width:120px; height:auto; border:1px solid #eee; border-radius:8px; padding:6px; background:#fff}
-    details{margin:10px 0}
-    summary{cursor:pointer; font-weight:700; color: var(--brand)}
-    .small{font-size:0.95rem}
-    .cta{
-      display:inline-block; margin-top:10px; padding:10px 14px;
-      background: var(--accent); color:#000; text-decoration:none; border-radius:8px; font-weight:700
+
+    h2 { margin: 0 0 10px; color: var(--brand-2); }
+    p.lead { color: var(--muted); margin-top:6px }
+
+    ul { padding-left: 20px; }
+    li { margin: 6px 0; }
+
+    /* Links & CTAs */
+    a.link { color: var(--brand); font-weight:700; text-decoration:none }
+    a.link:hover { text-decoration:underline }
+    .btn {
+      display:inline-block; background: var(--accent); color:#111; font-weight:800;
+      padding: 10px 14px; border-radius: 10px; text-decoration:none; margin-top:10px;
+      border: 1px solid rgba(17,17,17,.08);
+      box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    }
+
+    /* Details (expanders) styled like Portals */
+    details { border: 1px solid var(--border); border-radius: 10px; margin: 10px 0; background:#fff; }
+    summary {
+      cursor:pointer; list-style:none; padding: 12px 14px; font-weight:700; color: var(--brand);
+    }
+    details[open] summary { border-bottom: 1px solid var(--border); background: #f8fafc; }
+    details > div { padding: 14px; color: #374151; }
+
+    /* QR images grid */
+    .qr-grid { display:flex; flex-wrap:wrap; gap:20px; align-items:flex-start }
+    .qr { width:130px; height:auto; border:1px solid var(--border); border-radius: 10px; padding:8px; background:#fff; }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      background:#fff;
+      margin-top: 28px;
+      padding: 18px 0;
+      color: var(--muted);
+    }
+    footer a { color: var(--brand); text-decoration:none; font-weight:600 }
+    footer a:hover { text-decoration:underline }
+
+    /* Small screens */
+    @media (max-width: 640px){
+      .brand-row { flex-direction: row; align-items:center }
+      .brand-title { font-size: 1.25rem }
+      nav { gap:8px }
     }
   </style>
 </head>
 <body>
 
-<header>
-  <div class="container">
-    <div class="brand">
-      <!-- Replace logo.png with your actual file name in /assets -->
-      <img src="assets/logo.png" alt="Forward Progression Development Inc. logo" />
-      <h1>Donor Outreach & Requests – Fall 2025</h1>
-    </div>
-    <nav>
-      <a href="#goal">Goal</a>
-      <a href="#objectives">Objectives</a>
-      <a href="#links">Quick Links</a>
-      <a href="#letters">Donor Letters</a>
-    </nav>
-  </div>
-</header>
-
-<main class="container">
-
-  <div class="box" id="goal">
-    <h2>🌟 Primary Goal</h2>
-    <p>
-      Build genuine connections with our donors and invite them to be part of the impact we’re creating for Fall 2025.
-      We’ll reach out thoughtfully—sharing our story, listening to theirs, and showing how their support directly helps our mission.
-    </p>
-  </div>
-
-  <div class="box" id="objectives">
-    <h2>✅ Objectives</h2>
-    <ul>
-      <li>Prepare and send donor outreach letters (corporate, individual, community).</li>
-      <li>Build and segment contact lists (email, LinkedIn, social, print).</li>
-      <li>Coordinate campaign timeline and outreach dates.</li>
-      <li>Track responses, pledges, and contributions in Planner.</li>
-      <li>Provide weekly updates to the director and team.</li>
-    </ul>
-  </div>
-
-  <div class="box" id="links">
-    <h2>🔗 Quick Links</h2>
-    <p class="small">
-      • <a class="link" href="https://fpdinc.org/startup-your-business/" target="_blank">Startup Your Business</a><br/>
-      • <a class="link" href="https://outlook.office365.com/book/ForwardProgressionConnect@forwardprogressiondev.onmicrosoft.com/?ismsaljsauthenabled=true" target="_blank">Booking Portal</a>
-    </p>
-
-    <!-- Optional QR images (upload to /assets first) -->
-    <div class="qr-wrap">
-      <div>
-        <img class="qr" src="assets/qr-startup.png" alt="QR code - Startup Your Business">
-        <div class="small">Startup Your Business</div>
-      </div>
-      <div>
-        <img class="qr" src="assets/qr-booking.png" alt="QR code - Booking Portal">
-        <div class="small">Booking Portal</div>
+  <!-- HEADER -->
+  <header>
+    <div class="wrap">
+      <div class="brand-row">
+        <!-- Put your actual file in /assets and match the name/case -->
+        <img class="logo" src="assets/logo.png" alt="Forward Progression Development Inc. logo">
+        <div>
+          <h1 class="brand-title">Donor Outreach & Requests – Fall 2025</h1>
+          <nav>
+            <a href="#goal">Goal</a>
+            <a href="#objectives">Objectives</a>
+            <a href="#links">Quick Links</a>
+            <a href="#letters">Donor Letters</a>
+          </nav>
+        </div>
       </div>
     </div>
+  </header>
 
-    <a class="cta" href="mailto:contact@fpdinc.org">Contact Us</a>
-  </div>
+  <!-- MAIN -->
+  <main>
+    <div class="wrap">
 
-  <div class="box" id="letters">
-    <h2>📝 Donor Letters (templates)</h2>
-
-    <details>
-      <summary>Corporate Sponsors – template</summary>
-      <div class="small">
-        <p><strong>Subject:</strong> Partner with us for Fall 2025 — empowering our community</p>
-        <p>Dear [Contact Name/Team],</p>
-        <p>
-          On behalf of <strong>Forward Progression Development Inc.</strong>, I invite <strong>[Company]</strong> to join us as a corporate sponsor for our
-          <strong>Fall 2025 Community Outreach & Development Campaign</strong>. Our mission is to [mission/impact line].
+      <section class="card" id="goal">
+        <h2>🌟 Primary Goal</h2>
+        <p class="lead">
+          Build genuine connections with our donors for Fall 2025—sharing our story, listening to theirs,
+          and showing how their support directly advances our mission.
         </p>
-        <p><strong>Your sponsorship helps provide:</strong> technology resources (laptops/desktops/MacBooks/accessories), training tools & supplies, and
-          program funding for workshops, coaching, and outreach.</p>
-        <p><strong>Benefits:</strong> visibility in outreach materials, employee engagement opportunities, and public acknowledgement.</p>
-        <p>
-          Learn more: <a class="link" href="https://fpdinc.org/startup-your-business/" target="_blank">Program overview</a> •
-          Book a call: <a class="link" href="https://outlook.office365.com/book/ForwardProgressionConnect@forwardprogressiondev.onmicrosoft.com/?ismsaljsauthenabled=true" target="_blank">Scheduling link</a>
-        </p>
-        <p>With gratitude,<br/>[Your Name], [Title]<br/>Forward Progression Development Inc.</p>
-      </div>
-    </details>
+      </section>
 
-    <details>
-      <summary>Individual Donors – template</summary>
-      <div class="small">
-        <p><strong>Subject:</strong> Your support can power Fall 2025 programs</p>
-        <p>Dear [First Name],</p>
-        <p>
-          I’m reaching out from <strong>Forward Progression Development Inc.</strong> with an opportunity to make a direct and meaningful impact this
-          Fall. Our mission is to [mission/impact line].
-        </p>
-        <p><strong>Immediate needs:</strong> laptops, desktops, MacBooks, tech accessories, office supplies, training tools; plus program funding.</p>
-        <p><strong>Ways to help:</strong> make a gift, donate an item, or share our campaign.</p>
-        <p>
-          Learn more: <a class="link" href="https://fpdinc.org/startup-your-business/" target="_blank">Program overview</a> •
-          Book a call: <a class="link" href="https://outlook.office365.com/book/ForwardProgressionConnect@forwardprogressiondev.onmicrosoft.com/?ismsaljsauthenabled=true" target="_blank">Scheduling link</a>
-        </p>
-        <p>With appreciation,<br/>[Your Name], [Title]<br/>Forward Progression Development Inc.</p>
-      </div>
-    </details>
+      <section class="card" id="objectives">
+        <h2>✅ Objectives</h2>
+        <ul>
+          <li>Prepare and send donor outreach letters (corporate, individual, community).</li>
+          <li>Build and segment contact lists (email, LinkedIn, social, print).</li>
+          <li>Coordinate campaign timeline and outreach dates.</li>
+          <li>Track responses, pledges, and contributions in Planner.</li>
+          <li>Provide weekly updates to the director and team.</li>
+        </ul>
+      </section>
 
-    <details>
-      <summary>Community Partners – template</summary>
-      <div class="small">
-        <p><strong>Subject:</strong> Let’s team up for Fall 2025 community impact</p>
-        <p>Hello [Org/Team],</p>
+      <section class="card" id="links">
+        <h2>🔗 Quick Links</h2>
         <p>
-          We’re planning Fall 2025 programming to [impact line], and we’d love to collaborate with <strong>[Partner Org]</strong>.
+          • <a class="link" href="https://fpdinc.org/startup-your-business/" target="_blank">Startup Your Business</a><br>
+          • <a class="link" href="https://outlook.office365.com/book/ForwardProgressionConnect@forwardprogressiondev.onmicrosoft.com/?ismsaljsauthenabled=true" target="_blank">Booking Portal</a>
         </p>
-        <p><strong>Ways to partner:</strong> co-host events, cross-promote donation drives, and share/source priority items (laptops, MacBooks, accessories, office supplies, training tools).</p>
-        <p>
-          Learn more: <a class="link" href="https://fpdinc.org/startup-your-business/" target="_blank">Program overview</a> •
-          Book a call: <a class="link" href="https://outlook.office365.com/book/ForwardProgressionConnect@forwardprogressiondev.onmicrosoft.com/?ismsaljsauthenabled=true" target="_blank">Scheduling link</a>
-        </p>
-        <p>Best regards,<br/>[Your Name], [Title]<br/>Forward Progression Development Inc.</p>
-      </div>
-    </details>
 
-  </div>
+        <!-- Optional QR images (upload to /assets first) -->
+        <div class="qr-grid">
+          <div>
+            <img class="qr" src="assets/qr-startup.png" alt="QR - Startup Your Business">
+            <div style="font-size:.9rem; color:var(--muted); margin-top:6px">Startup Your Business</div>
+          </div>
+          <div>
+            <img class="qr" src="assets/qr-booking.png" alt="QR - Booking Portal">
+            <div style="font-size:.9rem; color:var(--muted); margin-top:6px">Booking Portal</div>
+          </div>
+        </div>
 
-</main>
+        <a class="btn" href="mailto:contact@fpdinc.org">Contact Us</a>
+      </section>
+
+      <section class="card" id="letters">
+        <h2>📝 Donor Letters (templates)</h2>
+
+        <details>
+          <summary>Corporate Sponsors – template</summary>
+          <div>
+            <p><strong>Subject:</strong> Partner with us for Fall 2025 — empowering our community</p>
+            <p>Dear [Contact Name/Team],</p>
+            <p>
+              On behalf of <strong>Forward Progression Development Inc.</strong>, I invite <strong>[Company]</strong> to join us as a corporate sponsor
+              for our <strong>Fall 2025 Community Outreach & Development Campaign</strong>. Our mission is to [mission/impact line].
+            </p>
+            <p><strong>Your sponsorship helps provide:</strong> technology resources (laptops/desktops/MacBooks/accessories), training tools & supplies,
+              and program funding for workshops, coaching, and outreach.</p>
+            <p><strong>Benefits:</strong> visibility in outreach materials, employee engagement opportunities, and public acknowledgement.</p>
+            <p>
+              Learn more: <a class="link" href="https://fpdinc.org/startup-your-business/" target="_blank">Program overview</a> •
+              Book a call: <a class="link" href="https://outlook.office365.com/book/ForwardProgressionConnect@forwardprogressiondev.onmicrosoft.com/?ismsaljsauthenabled=true" target="_blank">Scheduling link</a>
+            </p>
+            <p>With gratitude,<br>[Your Name], [Title]<br>Forward Progression Development Inc.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Individual Donors – template</summary>
+          <div>
+            <p><strong>Subject:</strong> Your support can power Fall 2025 programs</p>
+            <p>Dear [First Name],</p>
+            <p>
+              I’m reaching out from <strong>Forward Progression Development Inc.</strong> with an opportunity to make a direct and meaningful impact this
+              Fall. Our mission is to [mission/impact line].
+            </p>
+            <p><strong>Immediate needs:</strong> laptops, desktops, MacBooks, tech accessories, office supplies, training tools; plus program funding.</p>
+            <p><strong>Ways to help:</strong> make a gift, donate an item, or share our campaign.</p>
+            <p>
+              Learn more: <a class="link" href="https://fpdinc.org/startup-your-business/" target="_blank">Program overview</a> •
+              Book a call: <a class="link" href="https://outlook.office365.com/book/ForwardProgressionConnect@forwardprogressiondev.onmicrosoft.com/?ismsaljsauthenabled=true" target="_blank">Scheduling link</a>
+            </p>
+            <p>With appreciation,<br>[Your Name], [Title]<br>Forward Progression Development Inc.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Community Partners – template</summary>
+          <div>
+            <p><strong>Subject:</strong> Let’s team up for Fall 2025 community impact</p>
+            <p>Hello [Org/Team],</p>
+            <p>
+              We’re planning Fall 2025 programming to [impact line], and we’d love to collaborate with <strong>[Partner Org]</strong>.
+            </p>
+            <p><strong>Ways to partner:</strong> co-host events, cross-promote donation drives, and share/source priority items
+              (laptops, MacBooks, accessories, office supplies, training tools).</p>
+            <p>
+              Learn more: <a class="link" href="https://fpdinc.org/startup-your-business/" target="_blank">Program overview</a> •
+              Book a call: <a class="link" href="https://outlook.office365.com/book/ForwardProgressionConnect@forwardprogressiondev.onmicrosoft.com/?ismsaljsauthenabled=true" target="_blank">Scheduling link</a>
+            </p>
+            <p>Best regards,<br>[Your Name], [Title]<br>Forward Progression Development Inc.</p>
+          </div>
+        </details>
+
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      © 2025 Forward Progression Development Inc. ·
+      <a href="mailto:contact@fpdinc.org">contact@fpdinc.org</a>
+    </div>
+  </footer>
 
 </body>
 </html>
